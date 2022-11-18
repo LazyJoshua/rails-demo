@@ -30,6 +30,9 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 gem 'jquery-rails'
 
+# 分页
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
