@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     # auth_user
-    @users = User.page(params[:page] || 1).per_page(params[:per_page] || 10).order("id desc")
+    @users = User.page(params[:page] || 1).per_page(params[:per_page] || 5).order("id desc")
   end 
 
   def new
