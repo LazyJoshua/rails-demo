@@ -30,6 +30,8 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 gem 'jquery-rails'
 
+gem 'slim-rails', '~> 3.5', '>= 3.5.1'
+
 # 分页
 gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 
