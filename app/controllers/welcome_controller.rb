@@ -5,5 +5,8 @@ class WelcomeController < ApplicationController
     else
       nil
     end
+
+    # redirect_to new_session_path
+
   end
 end
