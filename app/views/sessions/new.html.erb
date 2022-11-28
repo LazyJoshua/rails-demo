@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-sm-4">
-    <%= form_tag sessions_path, method: "post" do %>
+    <%= form_tag sessions_path, method: "post", remote: true, class: "signin_form" do %>
       <div class="form-group">
         <%# <input type="text" name="username" placeholder="用户名..." class="form-control" id="form_username" title="用户名6-12个字符"> %>
         <%= text_field_tag :username, nil, class: "form-control", placeholder: "用户名...", title: "用户名6-12个字符" %>
@@ -19,3 +19,15 @@
   <div class="col-sm-8">
   </div>
 </div>
+
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $('.signin_form').on('ajax:success', function(event, data) {
+      if (data.status == 'ok') {
+        window.location.href = data.msg.redirect_url;
+      } else {
+        alert(data.msg);
+      }
+    })
+  </script>
+<% end -%>
