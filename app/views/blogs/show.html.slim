@@ -1,0 +1,9 @@
+h1
+  = @blog.title
+
+.row
+  .col-sm-5
+    p = "作者：#{@blog.user.username}, #{@blog.created_at}"
+    = @blog.content
+  
+  .col-sm-7

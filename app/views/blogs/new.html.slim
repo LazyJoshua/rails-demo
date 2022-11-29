@@ -1,0 +1,19 @@
+h1 创建博客
+
+.row
+  .col-sm-5
+   = form_for @blog, url: blogs_path, method: :post do |f|
+    .form-group 
+      ul.list-unstyled 
+        - @blog.errors.messages.values.flatten.each do |error|
+          li 
+            i.fa.fa-exclamation-circle 
+            = error 
+    .form-group 
+      = f.text_field :title, class: "form-control", placeholder: "标题"
+    .form-group 
+      = f.text_area :content, class: "form-control", placeholder: "内容"
+    
+    = f.submit "保存", class: "btn btn-primary"
+  
+  .col-sm-7

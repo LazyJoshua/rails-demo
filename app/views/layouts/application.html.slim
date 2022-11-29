@@ -34,6 +34,10 @@ html
               - else
                 li
                   = link_to "登录", new_session_path
+              
+              li 
+                = link_to "博客", blogs_path
+
     .container.body-offset
       - if flash[:notice]
         .alert.alert-info
