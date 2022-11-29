@@ -1,3 +1,68 @@
 h1 Home#index
 
+- line = "-" * 100
+
 p Find me in app/views/home/index.html.erb
+
+javascript: 
+  alert('Slim support embedded javascript!')
+
+p
+  |
+   This is a test of the text block.
+
+p
+  | This line is on the left margin.
+     This line will have one space in front of it.
+      This line will have two spaces in front of it.
+       And so on...
+       
+p 
+  | <tr><td>123</td><td>456</td></tr>
+
+- name = "zhangsan"
+h2 hi, #{name}
+h2 hi, \#{name}
+
+p
+  / This line won't get displayed.
+    Neither does this line.
+  | This will display.
+  /! This will get displayed as html comments.
+
+p  #{line}
+
+a> href='url1' Link1
+a> href='url2' Link2
+
+a< href='url1' Link1
+a< href='url2' Link2
+
+a<> href='url1' Link1
+
+p  #{line}
+
+h1 id="headline"
+  Welcome to my site.
+
+h1 id="headline"
+  | Welcome to my site.
+
+p #{line}
+
+
+/ h1 id="headline" = page_headline
+
+a href="http://slim-lang.com" title='Slim Homepage' Goto the Slim homepage
+
+<br/>
+
+a href="&amp;" amp 
+
+a href=="&amp;" amp
+
+<br/>
+
+a data-title="help" data-content="extremely long help text that goes on\
+  and on and on and then starts over...." link
+

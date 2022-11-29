@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title
+      | Circles
+    meta[http-equiv="content-type" content="text/html; charset=utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"]
+    = stylesheet_link_tag    'application', media: 'all'
+    - # <%= javascript_include_tag 'application'
+    - # <%= javascript_pack_tag 'application'
+    = csrf_meta_tags
+  body
+    header[name="top"]
+      nav#nav.navbar.navbar-default.navbar-fixed-top.nav-color[role="navigation"]
+        .container
+          .navbar-header.nav-color
+            button#nav_collapse.navbar-toggle.toggle-btn[type="button" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-controls="bs-navbar-collapse-1"]
+              span.fa.fa-bars.fa-lg
+            a.navbar-brand.custom-logo-link[href="/"]
+              |  Circles 
+          #bs-navbar-collapse-1.collapse.navbar-collapse.nav-submenu-color.collapse
+            ul.nav.navbar-nav.navbar-right.custom
+              li
+                a[href="/"]
+                  | Home
+              li
+                / |  <a href="
+                / = users_path
+                / | ">用户
+                a href=users_path 用户
+              - if logged_in?
+                li
+                  = link_to "#{current_user.username}, 退出", session_path(session[:user_id]), method: 'delete'
+              - else
+                li
+                  = link_to "登录", new_session_path
+    .container.body-offset
+      - if flash[:notice]
+        .alert.alert-info
+          = flash[:notice]
+      = yield
+    = javascript_include_tag 'application'
+    = yield :javascripts
