@@ -1,0 +1,16 @@
+table.table 
+  tr 
+    th ID 
+    th 标题
+    th 作者
+  - @blogs.each do |blog|
+    tr 
+      td
+        = blog.id 
+      td
+        = link_to blog.title, blog_path(blog)
+        - blog.tags.each do |tag|
+          span.badge = tag.title
+      td
+        = blog.user.username 
+= will_paginate @blogs

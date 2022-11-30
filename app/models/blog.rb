@@ -5,4 +5,5 @@ class Blog < ApplicationRecord
   validates :user_id, presence: { message: "用户不能为空" }
 
   belongs_to :user
+  has_and_belongs_to_many :tags
 end

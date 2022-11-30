@@ -7,17 +7,4 @@ div
 
 .row 
   .col-sm-12 
-    table.table 
-      tr 
-        th ID 
-        th 标题
-        th 作者
-      - @blogs.each do |blog|
-        tr 
-          td
-            = blog.id 
-          td
-            = link_to blog.title, blog_path(blog)
-          td
-            = blog.user.username 
-    = will_paginate @blogs
+    = render 'blogs'

@@ -13,6 +13,9 @@ h1 创建博客
       = f.text_field :title, class: "form-control", placeholder: "标题"
     .form-group 
       = f.text_area :content, class: "form-control", placeholder: "内容"
+    .form-group
+      input[type="text", name="tags"]
+      small "标签以逗号分隔"
     
     = f.submit "保存", class: "btn btn-primary"
   
