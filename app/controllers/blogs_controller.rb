@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :auth_user, except: [:index, :show]
 
   def index
-    @blogs = Blog.page(params[:page] || 1).per_page(params[:per_page] || 5).order("id desc").where(is_public: true)
+    @blogs = Blog.page(params[:page] || 1).per_page(params[:per_page] || 5).order("id desc").where(is_public: true).includes(:tags, :user)
   end
   
   def new
