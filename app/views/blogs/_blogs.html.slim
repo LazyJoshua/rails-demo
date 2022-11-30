@@ -3,6 +3,7 @@ table.table
     th ID 
     th 标题
     th 作者
+    th
   - @blogs.each do |blog|
     tr 
       td
@@ -13,4 +14,8 @@ table.table
           span.badge = tag.title
       td
         = blog.user.username 
+      td 
+        - if blog.user == current_user 
+          = blog.is_public ? "公开" : "隐藏"
+          = link_to "编辑", edit_blog_path(blog)
 = will_paginate @blogs

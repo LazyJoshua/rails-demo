@@ -1,8 +1,8 @@
-h1 创建博客
+h1 = (@blog.new_record? ? "创建博客" : "编辑博客")
 
 .row
   .col-sm-5
-   = form_for @blog, url: blogs_path, method: :post do |f|
+   = form_for @blog, url: (@blog.new_record? ? blogs_path : blog_path(@blog)), method: (@blog.new_record? ? :post : :put) do |f|
     .form-group 
       ul.list-unstyled 
         - @blog.errors.messages.values.flatten.each do |error|
@@ -14,8 +14,12 @@ h1 创建博客
     .form-group 
       = f.text_area :content, class: "form-control", placeholder: "内容"
     .form-group
-      input[type="text", name="tags"]
+      input type="text" name="tags" value=@blog.tags.map(&:title).join(',')
       small "标签以逗号分隔"
+    .form-group 
+      - [[true, "公开"], [false, "隐藏"]].each do |value, label|
+        input type='radio' name='blog[is_public]' value='#{value}' checked=(@blog.is_public == value)
+        span = label
     
     = f.submit "保存", class: "btn btn-primary"
   

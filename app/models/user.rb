@@ -5,5 +5,6 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, message: "密码长度最短为6位" }
 
   has_many :blogs
+  has_many :public_blogs, -> {where(is_public: true)}, class_name: "Blog"
 
 end
