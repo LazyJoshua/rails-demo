@@ -14,7 +14,7 @@ h1 = (@blog.new_record? ? "创建博客" : "编辑博客")
     .form-group 
       = f.text_area :content, class: "form-control", placeholder: "内容"
     .form-group
-      input type="text" name="tags" value=@blog.tags.map(&:title).join(',')
+      input type="text" name="blog[tags_string]" value=@blog.tags.map(&:title).join(',')
       small "标签以逗号分隔"
     .form-group 
       - [[true, "公开"], [false, "隐藏"]].each do |value, label|

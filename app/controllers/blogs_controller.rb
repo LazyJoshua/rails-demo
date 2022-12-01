@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
     # @blog.user = current_user
     @blog = current_user.blogs.new(blog_attrs)
     if @blog.save
-      update_tags
+      # update_tags
 
       flash[:notice] = "博客创建成功"
       redirect_to blogs_path
@@ -39,7 +39,7 @@ class BlogsController < ApplicationController
     @blog.attributes = blog_attrs
     if @blog.save
       @blog.tags.destroy_all
-      update_tags
+      # update_tags
       flash[:notice] = "博客更新成功"
       redirect_to blogs_path
     else
@@ -52,16 +52,16 @@ class BlogsController < ApplicationController
   
   private 
   def blog_attrs
-    params.require(:blog).permit(:title, :content, :is_public)
+    params.require(:blog).permit(:title, :content, :is_public, :tags_string)
   end
   
-  def update_tags
-    params[:tags].split(',').each do |tag|
-      one_tag = Tag.find_by(title: tag)
-      one_tag = Tag.new(title: tag) unless one_tag
-      @blog.tags << one_tag
-    end
-  end
+  # def update_tags
+  #   params[:tags].split(',').each do |tag|
+  #     one_tag = Tag.find_by(title: tag)
+  #     one_tag = Tag.new(title: tag) unless one_tag
+  #     @blog.tags << one_tag
+  #   end
+  # end
   
 
 end
