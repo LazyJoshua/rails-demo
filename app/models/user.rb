@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :blogs
   has_many :public_blogs, -> {where(is_public: true)}, class_name: "Blog"
+  has_one :latest_blog, -> {order("id desc")}, class_name: :Blog
 
 end
