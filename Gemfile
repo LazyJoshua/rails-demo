@@ -32,6 +32,8 @@ gem 'jquery-rails'
 
 gem 'slim-rails', '~> 3.5', '>= 3.5.1'
 
+gem 'pg', '~> 1.4', '>= 1.4.5'
+
 # 分页
 gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 
